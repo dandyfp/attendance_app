@@ -45,10 +45,11 @@ android {
         applicationId "com.example.attendance_app"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        minSdkVersion 21
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -64,4 +65,11 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    testImplementation "io.mockk:mockk:1.12.0"
+    testImplementation "io.mockk:mockk-agent-jvm:1.12.0"
+	androidTestImplementation "io.mockk:mockk-android:1.12.0"
+    androidTestImplementation "io.mockk:mockk-agent-jvm:1.12.4"
+    implementation "androidx.multidex:multidex:2.0.1"
+    
+}
